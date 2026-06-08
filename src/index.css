@@ -1,0 +1,69 @@
+/*
+ * src/index.css
+ *
+ * Purpose: Global styles and Tailwind directives for Family Cashflow
+ * Context: Imported once in main.jsx — applies to entire app
+ * Dependencies: tailwindcss@3, Google Fonts (DM Sans, DM Mono)
+ */
+
+/* ─── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+/* ─── Tailwind Directives ───────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Resets ───────────────────────────────────────────── */
+@layer base {
+  html {
+    /* Prevent font size inflation on mobile */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+
+  /* Monospace for all currency/number displays */
+  .mono {
+    @apply font-mono;
+  }
+}
+
+/* ─── Reusable Component Classes ────────────────────────────── */
+@layer components {
+  /* Card container used across ledger, summary, form panels */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-4;
+  }
+
+  /* Primary action button — add entry, submit */
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-700 text-white font-medium
+           px-4 py-2 rounded-xl transition-colors duration-150;
+  }
+
+  /* Neutral secondary button — cancel, reset */
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium
+           px-4 py-2 rounded-xl transition-colors duration-150;
+  }
+
+  /* Form input base style */
+  .input {
+    @apply w-full border border-gray-200 rounded-xl px-3 py-2
+           text-sm focus:outline-none focus:ring-2 focus:ring-brand-500
+           bg-white placeholder-gray-400;
+  }
+
+  /* Income row highlight */
+  .row-in {
+    @apply bg-brand-50;
+  }
+
+  /* Expense row highlight */
+  .row-out {
+    @apply bg-expense-100;
+  }
+}
